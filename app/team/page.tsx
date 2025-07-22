@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface TeamMember {
   id: string;
@@ -160,6 +161,15 @@ export default function TeamPage() {
             <br />
             必要なときに、我々は現れる。
           </p>
+          
+          {/* Hidden link to Tenko page */}
+          <div className="mt-12">
+            <Link 
+              href="/tenko"
+              className="inline-block w-3 h-3 rounded-full bg-takara-gold/5 hover:bg-takara-gold/20 transition-all duration-1000"
+              aria-label="Secret entrance"
+            />
+          </div>
         </motion.div>
       </div>
     </div>
