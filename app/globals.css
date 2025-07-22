@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #0A0A0A;
@@ -9,10 +11,6 @@
   --takara-cream: #FFF8E1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
 
 body {
   background: var(--background);
