@@ -180,15 +180,15 @@ export default function MembersPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="font-mincho text-3xl md:text-4xl text-takara-gold mb-2">
-                Exclusive Contents
+                会員限定コンテンツ
               </h1>
               <p className="font-avenir text-takara-cream/70">
-                メンバー限定コンテンツ
+                Exclusive Contents
               </p>
             </div>
             <div className="text-right">
               <p className="font-acumin text-sm text-takara-cream/50 mb-1">
-                Access Level: {accessLevel.toUpperCase()}
+                アクセスレベル: {accessLevel === "member" ? "メンバー" : "プレミアム"}
               </p>
               <button
                 onClick={() => router.push("/")}

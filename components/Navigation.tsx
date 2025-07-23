@@ -97,31 +97,8 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Support Member Button - Always Visible */}
-          <Link
-            href="/auth"
-            className="hidden lg:flex items-center space-x-2 px-6 py-3 bg-takara-gold/10 border-2 border-takara-gold/50 rounded-lg text-takara-gold font-avenir hover:bg-takara-gold/20 hover:border-takara-gold transition-all group"
-          >
-            <motion.svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ rotate: 15 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-              />
-            </motion.svg>
-            <span className="tracking-wider">サポートメンバーになる</span>
-          </Link>
-
-          {/* Desktop Auth Status */}
-          <div className="hidden lg:flex items-center space-x-6 ml-6 pl-6 border-l border-takara-gold/20">
+          {/* Right Side Actions */}
+          <div className="hidden lg:flex items-center space-x-6">
             {isAuthenticated ? (
               <>
                 <Link
@@ -133,7 +110,7 @@ export default function Navigation() {
                       ? "text-takara-gold"
                       : "text-takara-gold/70 hover:text-takara-gold"
                   }`}>
-                    Members
+                    会員サイト
                   </span>
                   {pathname === "/members" && (
                     <motion.div
@@ -148,15 +125,30 @@ export default function Navigation() {
                   onClick={logout}
                   className="font-avenir text-sm text-takara-cream/50 hover:text-takara-cream transition-colors"
                 >
-                  Logout
+                  ログアウト
                 </button>
               </>
             ) : (
               <Link
                 href="/support"
-                className="font-avenir text-sm text-takara-gold/70 hover:text-takara-gold transition-colors"
+                className="flex items-center space-x-2 px-6 py-3 bg-takara-gold/10 border-2 border-takara-gold/50 rounded-lg text-takara-gold font-avenir hover:bg-takara-gold/20 hover:border-takara-gold transition-all group"
               >
-                Support
+                <motion.svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  whileHover={{ rotate: 15 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                  />
+                </motion.svg>
+                <span className="tracking-wider">サポートメンバーになる</span>
               </Link>
             )}
           </div>
@@ -186,53 +178,45 @@ export default function Navigation() {
             ))}
             
             <div className="border-t border-takara-gold/20 pt-4">
-              <Link
-                href="/auth"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center space-x-2 mx-4 px-4 py-3 bg-takara-gold/10 border border-takara-gold/50 rounded-lg text-takara-gold font-avenir"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-                  />
-                </svg>
-                <span>サポートメンバーになる</span>
-              </Link>
-              
               {isAuthenticated ? (
-                <div className="mt-4 px-4 space-y-2">
+                <div className="px-4 space-y-4">
                   <Link
                     href="/members"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-takara-gold/70 font-avenir text-sm"
+                    className="block px-4 py-3 bg-takara-gold/10 border border-takara-gold/50 rounded-lg text-takara-gold font-avenir text-center"
                   >
-                    Members Area
+                    会員サイト
                   </Link>
                   <button
                     onClick={() => {
                       logout();
                       setMobileMenuOpen(false);
                     }}
-                    className="block text-takara-cream/50 font-avenir text-sm"
+                    className="block w-full text-takara-cream/50 font-avenir text-sm"
                   >
-                    Logout
+                    ログアウト
                   </button>
                 </div>
               ) : (
                 <Link
                   href="/support"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block mt-4 px-4 text-takara-gold/70 font-avenir text-sm"
+                  className="flex items-center space-x-2 mx-4 px-4 py-3 bg-takara-gold/10 border border-takara-gold/50 rounded-lg text-takara-gold font-avenir"
                 >
-                  Support Options
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                    />
+                  </svg>
+                  <span>サポートメンバーになる</span>
                 </Link>
               )}
             </div>

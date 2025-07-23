@@ -114,7 +114,7 @@ export default function AuthPage() {
               />
             ) : null}
             <span className="relative z-10">
-              {isLoading ? "認証中..." : "ENTER"}
+              {isLoading ? "認証中..." : "認証する"}
             </span>
           </motion.button>
         </motion.form>
