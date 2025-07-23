@@ -200,6 +200,56 @@ export default function Home() {
           </p>
         </motion.div>
       </section>
+
+      {/* Join Section */}
+      <section className="relative z-10 py-24 px-6 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-mincho text-3xl md:text-4xl text-takara-cream mb-6">
+                真実への投資
+              </h2>
+              <p className="font-mincho text-lg text-takara-cream/70 mb-8 leading-relaxed">
+                私たちの探索は、単なる宝探しではありません。
+                日本に眠る未知の真実を、最先端の技術と古の知恵を融合させて解き明かす、
+                壮大な知的プロジェクトです。
+              </p>
+              <Link href="/support">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-takara-gold/10 border-2 border-takara-gold/50 rounded-lg text-takara-gold font-avenir tracking-wider hover:bg-takara-gold/20 hover:border-takara-gold transition-all"
+                >
+                  探索に参加する →
+                </motion.button>
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-takara-gold/10 to-takara-navy/30 p-8">
+                <div className="h-full flex flex-col justify-center space-y-6">
+                  <div className="text-center">
+                    <p className="font-acumin text-4xl text-takara-gold mb-2">127</p>
+                    <p className="font-avenir text-sm text-takara-cream/60">調査完了地点</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="font-acumin text-4xl text-takara-gold mb-2">89%</p>
+                    <p className="font-avenir text-sm text-takara-cream/60">夢一致率</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="font-acumin text-4xl text-takara-gold mb-2">∞</p>
+                    <p className="font-avenir text-sm text-takara-cream/60">可能性</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }

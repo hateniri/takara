@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useMembership } from "@/contexts/MembershipContext";
 
 const navItems = [
   { href: "/", label: "ホーム" },
@@ -14,6 +15,7 @@ const navItems = [
 
 export default function Navigation() {
   const pathname = usePathname();
+  const { isAuthenticated, logout } = useMembership();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-takara-gold/20">
@@ -61,6 +63,47 @@ export default function Navigation() {
                 <div className="absolute -bottom-1 left-0 right-0 h-px bg-takara-gold/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </Link>
             ))}
+            
+            {/* Membership Links */}
+            <div className="flex items-center space-x-6 ml-8 pl-8 border-l border-takara-gold/20">
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    href="/members"
+                    className="relative group"
+                  >
+                    <span className={`font-avenir text-sm tracking-wider transition-colors duration-300 ${
+                      pathname === "/members"
+                        ? "text-takara-gold"
+                        : "text-takara-gold/70 hover:text-takara-gold"
+                    }`}>
+                      Members
+                    </span>
+                    {pathname === "/members" && (
+                      <motion.div
+                        layoutId="navigation-indicator"
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-takara-gold"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                  <button
+                    onClick={logout}
+                    className="font-avenir text-sm text-takara-cream/50 hover:text-takara-cream transition-colors"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/support"
+                  className="font-avenir text-sm text-takara-gold/70 hover:text-takara-gold transition-colors"
+                >
+                  Support
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

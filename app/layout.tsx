@@ -4,6 +4,7 @@ import Script from "next/script";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import NoiseOverlay from "@/components/NoiseOverlay";
+import { MembershipProvider } from "@/contexts/MembershipContext";
 
 export const metadata: Metadata = {
   title: "株式会社宝探し",
@@ -28,13 +29,15 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-black text-white min-h-screen antialiased">
-        <NoiseOverlay />
-        <Navigation />
-        <PageTransition>
-          <main className="pt-20">
-            {children}
-          </main>
-        </PageTransition>
+        <MembershipProvider>
+          <NoiseOverlay />
+          <Navigation />
+          <PageTransition>
+            <main className="pt-20">
+              {children}
+            </main>
+          </PageTransition>
+        </MembershipProvider>
       </body>
     </html>
   );
