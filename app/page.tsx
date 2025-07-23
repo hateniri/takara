@@ -160,11 +160,14 @@ export default function Home() {
             >
               <Link href="/exploration">
                 <div className="relative aspect-video rounded-lg overflow-hidden mb-6">
-                  <div className="absolute inset-0 bg-takara-navy/50 flex items-center justify-center">
-                    <span className="font-acumin text-takara-gold/50 text-sm">
-                      動画サムネイルプレースホルダー
-                    </span>
-                  </div>
+                  <DynamicImage
+                    type="video"
+                    width={640}
+                    height={360}
+                    text="ドローン映像サムネイル"
+                    alt="探索記録の動画サムネイル"
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <motion.div
                     className="absolute bottom-4 left-4 text-takara-cream"
@@ -198,11 +201,14 @@ export default function Home() {
             >
               <Link href="/insight">
                 <div className="relative aspect-video rounded-lg overflow-hidden mb-6">
-                  <div className="absolute inset-0 bg-takara-navy/50 flex items-center justify-center">
-                    <span className="font-acumin text-takara-gold/50 text-sm">
-                      考察図解プレースホルダー
-                    </span>
-                  </div>
+                  <DynamicImage
+                    type="diagram"
+                    width={640}
+                    height={360}
+                    text="考察図解"
+                    alt="考察記事のサムネイル"
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <motion.div
                     className="absolute bottom-4 left-4 text-takara-cream"

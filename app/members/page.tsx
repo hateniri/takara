@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMembership } from "@/contexts/MembershipContext";
 import { useRouter } from "next/navigation";
+import DynamicImage from "@/components/DynamicImage";
 
 interface ExclusiveContent {
   id: string;
@@ -214,25 +215,34 @@ export default function MembersPage() {
             <h2 className="font-avenir text-xl text-takara-cream mb-6">
               Featured
             </h2>
-            <div className="relative h-96 rounded-lg overflow-hidden bg-gradient-to-r from-takara-navy/50 to-transparent">
-              <div className="absolute inset-0 flex items-center px-12">
-                <div className="max-w-2xl">
-                  <h3 className="font-mincho text-4xl text-takara-cream mb-4">
-                    高IQブレスト会議 Vol.3
-                  </h3>
-                  <p className="font-avenir text-lg text-takara-cream/70 mb-6">
-                    夢一致現象についての仮説検証 - 6名の研究者による2時間の討論
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-takara-gold/20 border border-takara-gold/50 rounded-full text-takara-cream font-avenir hover:bg-takara-gold/30 transition-all"
-                  >
-                    再生する
-                  </motion.button>
+            <div className="relative h-96 rounded-lg overflow-hidden">
+              <DynamicImage
+                type="hero"
+                width={1920}
+                height={600}
+                text="高IQブレスト会議 Vol.3"
+                alt="Featured content banner"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
+                <div className="absolute inset-0 flex items-center px-12">
+                  <div className="max-w-2xl">
+                    <h3 className="font-mincho text-4xl text-takara-cream mb-4">
+                      高IQブレスト会議 Vol.3
+                    </h3>
+                    <p className="font-avenir text-lg text-takara-cream/70 mb-6">
+                      夢一致現象についての仮説検証 - 6名の研究者による2時間の討論
+                    </p>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-8 py-3 bg-takara-gold/20 border border-takara-gold/50 rounded-full text-takara-cream font-avenir hover:bg-takara-gold/30 transition-all"
+                    >
+                      再生する
+                    </motion.button>
+                  </div>
                 </div>
               </div>
-              <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-black/50 to-transparent" />
             </div>
           </motion.section>
 
@@ -334,12 +344,15 @@ function ContentCard({
       onClick={!isLocked ? onClick : undefined}
     >
       <div className="aspect-video bg-takara-navy/30 rounded-lg overflow-hidden">
+        <DynamicImage
+          type={content.type === "video" ? "video" : "thumbnail"}
+          width={640}
+          height={360}
+          text={content.type === "video" ? "映像" : content.type === "article" ? "記事" : "レポート"}
+          alt={content.title}
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-acumin text-xs text-takara-gold/50">
-            {content.thumbnail}
-          </span>
-        </div>
         {isLocked && (
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
             <div className="text-center">

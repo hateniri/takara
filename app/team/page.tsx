@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import DynamicImage from "@/components/DynamicImage";
 
 interface TeamMember {
   id: string;

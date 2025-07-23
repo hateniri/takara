@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import DynamicImage from "@/components/DynamicImage";
 
 // Mock data - In real app, this would come from CMS or API
 const insights = {
@@ -101,11 +102,14 @@ export default function InsightDetailPage() {
           {insight.images.map((image, index) => (
             <div key={index} className="space-y-2">
               <div className="aspect-[4/3] bg-takara-navy/30 rounded-lg overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="font-acumin text-xs text-takara-gold/50">
-                    {image.placeholder}
-                  </span>
-                </div>
+                <DynamicImage
+                  type="document"
+                  width={800}
+                  height={600}
+                  text={image.placeholder}
+                  alt={image.caption}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className="font-avenir text-xs text-takara-cream/60 text-center">
                 {image.caption}

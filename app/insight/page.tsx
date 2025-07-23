@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import DynamicImage from "@/components/DynamicImage";
 
 interface Insight {
   id: string;
@@ -113,11 +114,14 @@ export default function InsightPage() {
                         transition={{ delay: index * 0.1 + imgIndex * 0.05 }}
                         className="relative aspect-[4/3] rounded bg-takara-navy/30 overflow-hidden"
                       >
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-acumin text-xs text-takara-gold/50 text-center">
-                            {image.placeholder}
-                          </span>
-                        </div>
+                        <DynamicImage
+                          type={image.type === "diagram" ? "diagram" : image.type === "map" ? "map" : "photo"}
+                          width={800}
+                          height={600}
+                          text={image.placeholder}
+                          alt={image.placeholder}
+                          className="w-full h-full object-cover"
+                        />
                         <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-sm rounded px-2 py-1">
                           <span className="font-acumin text-xs text-takara-cream/70">
                             {image.type}
