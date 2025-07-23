@@ -98,10 +98,10 @@ export default function MembersPage() {
               transition={{ delay: 0.2 }}
             >
               <h1 className="font-mincho text-4xl text-takara-gold mb-4">
-                限定アクセス
+                ハンター専用エリア
               </h1>
               <p className="font-avenir text-takara-cream/70">
-                投資家・特別協力者の皆様へ
+                選ばれし探求者のみがアクセスを許される
               </p>
             </motion.div>
           </div>
@@ -188,7 +188,7 @@ export default function MembersPage() {
             </div>
             <div className="text-right">
               <p className="font-acumin text-sm text-takara-cream/50 mb-1">
-                アクセスレベル: {accessLevel === "member" ? "メンバー" : "プレミアム"}
+                ハンターランク: {accessLevel === "member" ? "★★★" : "★★★★★"}
               </p>
               <button
                 onClick={() => router.push("/")}

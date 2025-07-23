@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import DynamicImage from "@/components/DynamicImage";
 
 export default function Home() {
   const [magneticPosition, setMagneticPosition] = useState({ x: 0, y: 0 });
@@ -81,18 +81,18 @@ export default function Home() {
             高次の知性が導く、真の探求への道標
           </motion.p>
 
-          {/* Ancient Map Placeholder */}
+          {/* Ancient Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
             className="relative w-full max-w-2xl aspect-[4/3] mx-auto mb-16 rounded-lg overflow-hidden"
           >
-            <div className="absolute inset-0 bg-takara-navy/50 backdrop-blur-sm flex items-center justify-center">
-              <span className="font-acumin text-takara-gold/50 text-sm tracking-widest">
-                古地図画像プレースホルダー
-              </span>
-            </div>
+            <DynamicImage
+              preset="ancientMap"
+              alt="宝の在り処を示す古地図"
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </motion.div>
         </motion.div>

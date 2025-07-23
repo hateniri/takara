@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Image from "next/image";
+import DynamicImage from "@/components/DynamicImage";
 
 interface ExplorationRecord {
   id: string;
@@ -82,11 +82,11 @@ export default function ExplorationPage() {
                 {/* Video Section */}
                 <div className="relative">
                   <div className="aspect-video relative rounded-lg overflow-hidden bg-takara-navy/30">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-acumin text-takara-gold/50">
-                        YouTube埋め込みプレースホルダー
-                      </span>
-                    </div>
+                    <DynamicImage
+                      preset="droneFootage"
+                      alt={`${record.title} - ドローン映像`}
+                      className="w-full h-full object-cover"
+                    />
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
@@ -107,11 +107,17 @@ export default function ExplorationPage() {
                         whileHover={{ scale: 1.05 }}
                         className="aspect-square rounded bg-takara-navy/30 overflow-hidden"
                       >
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="font-acumin text-xs text-takara-gold/50">
-                            フィールド画像{imgIndex + 1}
-                          </span>
-                        </div>
+                        <DynamicImage
+                          options={{
+                            width: 200,
+                            height: 200,
+                            text: `Point ${imgIndex + 1}`,
+                            type: 'photo',
+                            style: imgIndex === 0 ? 'ancient' : imgIndex === 1 ? 'mystical' : 'technical'
+                          }}
+                          alt={`フィールド画像 ${imgIndex + 1}`}
+                          className="w-full h-full object-cover"
+                        />
                       </motion.div>
                     ))}
                   </div>

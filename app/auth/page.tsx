@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useMembership } from "@/contexts/MembershipContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import DynamicImage from "@/components/DynamicImage";
 
 export default function AuthPage() {
   const { login } = useMembership();
@@ -38,28 +39,21 @@ export default function AuthPage() {
         transition={{ duration: 0.6 }}
         className="w-full max-w-md"
       >
-        {/* Key Icon */}
+        {/* Hunter License Card */}
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
+          initial={{ scale: 0, rotateY: 180 }}
+          animate={{ scale: 1, rotateY: 0 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-24 h-24 mx-auto mb-8 relative"
+          className="mx-auto mb-8 relative"
+          style={{ perspective: 1000 }}
         >
-          <div className="absolute inset-0 bg-takara-gold/10 rounded-full animate-pulse" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg
-              className="w-12 h-12 text-takara-gold"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-              />
-            </svg>
+          <div className="relative">
+            <DynamicImage
+              preset="hunterLicense"
+              alt="Hunter License"
+              className="w-full max-w-sm mx-auto rounded-lg shadow-2xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg" />
           </div>
         </motion.div>
 
