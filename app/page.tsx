@@ -98,6 +98,45 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* CTA Section - Mid Page */}
+      <section className="relative z-10 py-24 px-6 lg:px-12 bg-gradient-to-b from-transparent via-takara-navy/10 to-transparent">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="font-mincho text-3xl md:text-4xl text-takara-cream mb-6">
+            この旅に、参加する方法はひとつだけ
+          </h2>
+          <p className="font-avenir text-lg text-takara-cream/70 mb-8">
+            知的探求の扉は、選ばれし者にのみ開かれる
+          </p>
+          <Link href="/auth">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-3 px-8 py-4 bg-takara-gold/10 border-2 border-takara-gold/50 rounded-lg text-takara-gold font-avenir tracking-wider hover:bg-takara-gold/20 hover:border-takara-gold transition-all"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                />
+              </svg>
+              <span>サポートメンバーになる</span>
+            </motion.button>
+          </Link>
+        </motion.div>
+      </section>
+
       {/* Latest Content Section */}
       <section className="relative z-10 py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
